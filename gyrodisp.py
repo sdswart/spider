@@ -7,6 +7,7 @@ from mpu6050 import mpu6050
 if __name__ == '__main__':
     gyro = mpu6050(0x68)
     data = gyro.get_accel_data()
+
     gyro_x_range = [data['x'], data['x']]
     gyro_y_range = [data['y'], data['y']]
 
@@ -25,6 +26,7 @@ if __name__ == '__main__':
     # y = int(disp.height/2)
 
     while True:
+        data = gyro.get_accel_data()
         gx = data['x']
         if gx < gyro_x_range[0]:
             gyro_x_range[0] = gx
@@ -43,7 +45,7 @@ if __name__ == '__main__':
 
         im = Image.new("RGB", (disp.width, disp.height), "WHITE")
         draw = ImageDraw.Draw(im)
-        print(f'x={x}, y={y}, x_range={gyro_x_range}, y_range={gyro_y_range}\nvalues={gyro.values}', end='\r')
+        print(f'x={x}, y={y}, x_range={gyro_x_range}, y_range={gyro_y_range}\ndata={data}', end='\r')
 
         draw.ellipse((x-ball_x_delta, y-ball_y_delta, x+ball_x_delta, y+ball_y_delta), fill=(0, 255, 0))
         disp.ShowImage(im)
