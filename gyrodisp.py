@@ -42,6 +42,7 @@ if __name__ == '__main__':
 
         im = Image.new("RGB", (disp.width, disp.height), "WHITE")
         draw = ImageDraw.Draw(im)
+        print(f'x={x}, y={y}, x_range={gyro_x_range}, y_range={gyro_y_range}', end='\r')
         draw.ellipse((x-ball_x_delta, y-ball_y_delta, x+ball_x_delta, y+ball_y_delta), fill=(0, 255, 0))
         disp.ShowImage(im)
 
