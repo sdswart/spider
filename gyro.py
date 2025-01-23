@@ -73,3 +73,14 @@ class Gyro:
     @property
     def z(self):
         return self.read_raw_data(GYRO_ZOUT_H) / 131.0
+
+    @property
+    def values(self):
+        return {
+            'acc_x': self.acc_x,
+            'acc_y': self.acc_y,
+            'acc_z': self.acc_z,
+            'x': self.x,
+            'y': self.y,
+            'z': self.z,
+        }
