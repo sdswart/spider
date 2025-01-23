@@ -6,8 +6,8 @@ from gyro import Gyro
 
 if __name__ == '__main__':
     gyro = Gyro()
-    gyro_x_range = (gyro.x, gyro.x)
-    gyro_y_range = (gyro.y, gyro.y)
+    gyro_x_range = [gyro.x, gyro.x]
+    gyro_y_range = [gyro.y, gyro.y]
 
     # Display
     disp = LCD_2inch.LCD_2inch()
