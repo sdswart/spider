@@ -1,5 +1,6 @@
 import cv2
-from .display import LCD_2inch
+from display import LCD_2inch
+from PIL import Image, ImageDraw, ImageFont
 
 
 if __name__ == '__main__':
@@ -21,7 +22,9 @@ if __name__ == '__main__':
 
     while rval:
         rval, frame = vc.read()
-        disp.ShowImage(frame)
+        im = Image.fromarray(frame)
+        im = im.resize((disp.height, disp.width), resample=Image.LANCZOS)
+        disp.ShowImage(im)
         key = cv2.waitKey(20)
         if key == 27:  # exit on ESC
             break
