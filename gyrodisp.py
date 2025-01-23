@@ -1,13 +1,14 @@
 from display import LCD_2inch
 from PIL import Image, ImageDraw, ImageFont
 from time import sleep
-from gyro import Gyro
+from mpu6050 import mpu6050
 
 
 if __name__ == '__main__':
-    gyro = Gyro()
-    gyro_x_range = [gyro.x, gyro.x]
-    gyro_y_range = [gyro.y, gyro.y]
+    gyro = mpu6050(0x68)
+    data = gyro.get_accel_data()
+    gyro_x_range = [data['x'], data['x']]
+    gyro_y_range = [data['y'], data['y']]
 
     # Display
     disp = LCD_2inch.LCD_2inch()
@@ -24,12 +25,12 @@ if __name__ == '__main__':
     # y = int(disp.height/2)
 
     while True:
-        gx = gyro.x
+        gx = data['x']
         if gx < gyro_x_range[0]:
             gyro_x_range[0] = gx
         elif gx > gyro_x_range[1]:
             gyro_x_range[1] = gx
-        gy = gyro.y
+        gy = data['y']
         if gy < gyro_y_range[0]:
             gyro_y_range[0] = gy
         elif gy > gyro_y_range[1]:
