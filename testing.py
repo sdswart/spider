@@ -26,9 +26,9 @@ from time import sleep
 
 # Servo Broadcom numbers: https://pinout.xyz/
 servos = {
-    'fl0': 16,
+    'fl0': 19,
     'fl1': 26,
-    'fl2': 19,
+    'fl2': 16,
 
     'fr0': 13,
     'fr1': 12,
