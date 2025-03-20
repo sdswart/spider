@@ -65,7 +65,6 @@ while (name := input('Enter a name: ').strip()) not in ['exit', '']:
     sleep(1)
     pwm.set_servo_pulsewidth(pin, 1500)
     sleep(1)
-    pwm.set_servo_pulsewidth(pin, 500)
 
 for pin in servos.values():
     # turning off servo
