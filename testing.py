@@ -28,7 +28,7 @@ from time import sleep
 servos = {
     'fl0': 19,
     'fl1': 26,
-    'fl2': 16,
+    'fl2': 20,
 
     'fr0': 13,
     'fr1': 12,
