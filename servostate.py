@@ -67,9 +67,14 @@ def flat():
 def stand():
     flat()
     sleep(1)
-    for servo in spider_servos.values():
-        if servo.segment == 2:
-            servo.set_angle(10)
+    for fr in ['f', 'r']:
+        for lr in ['l', 'r']:
+            spider_servos[f'{fr}{lr}1'].set_angle(110)
+            sleep(1)
+            spider_servos[f'{fr}{lr}2'].set_angle(25)
+            sleep(1)
+            spider_servos[f'{fr}{lr}1'].set_angle(90)
+            sleep(1)
 
 states = {
     'flat': flat,
