@@ -44,6 +44,8 @@ class SpiderServo:
     def set_angle(self, angle):
         if self.right:  # reverse angle
             angle = 180 - angle
+        if self.front:  # reverse angle
+            angle = 180 - angle
         self.angle = angle
         # angle_to_pulse_width
         pw = 2500-((180-angle)/180)*(2000)
@@ -56,9 +58,14 @@ class SpiderServo:
 
 spider_servos = {name: SpiderServo(name) for name in servos}
 
-def stand():
+
+def flat():
     for servo in spider_servos.values():
         servo.set_angle(90)
+
+
+def stand():
+    flat()
     sleep(1)
     for servo in spider_servos.values():
         if servo.segment == 2:
@@ -73,7 +80,4 @@ while (state := input('Enter a name: ').strip()) not in ['exit', '']:
         continue
     fcn = states[state]
     fcn()
-
-for servo in spider_servos.values():
-    servo.__del__()
 
