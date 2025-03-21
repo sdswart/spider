@@ -69,11 +69,11 @@ def stand():
     sleep(1)
     for fr in ['f', 'r']:
         for lr in ['l', 'r']:
-            spider_servos[f'{fr}{lr}1'].set_angle(110)
+            spider_servos[f'{fr}{lr}1'].set_angle(30)
             sleep(1)
             spider_servos[f'{fr}{lr}2'].set_angle(25)
             sleep(1)
-            spider_servos[f'{fr}{lr}1'].set_angle(90)
+            spider_servos[f'{fr}{lr}1'].set_angle(100)
             sleep(1)
 
 states = {
