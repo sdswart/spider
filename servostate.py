@@ -72,7 +72,8 @@ def stand():
             servo.set_angle(10)
 
 states = {
-    'stand': stand
+    'flat': flat,
+    'stand': stand,
 }
 
 while (state := input('Enter a name: ').strip()) not in ['exit', '']:
